@@ -1,0 +1,929 @@
+/* ==========================================
+   AI Fake News Detection
+   Premium Dashboard UI
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at top left,#3b82f6 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#7c3aed 0%,transparent 35%),
+    linear-gradient(135deg,#071320,#0d1b2a,#101d3d);
+
+    color:white;
+
+    overflow-x:hidden;
+
+}
+
+/* Background Blur */
+
+.background-blur{
+
+    position:fixed;
+
+    width:600px;
+    height:600px;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    filter:blur(220px);
+
+    opacity:.18;
+
+    top:-200px;
+    left:-150px;
+
+    z-index:-1;
+
+}
+
+.container{
+
+    padding-top:50px;
+    padding-bottom:50px;
+
+}
+
+/* ===========================
+      Glass Card
+=========================== */
+
+.glass-card{
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:22px;
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.35);
+
+}
+
+/* ===========================
+       Title
+=========================== */
+
+.title{
+
+    font-size:40px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    margin-bottom:8px;
+
+}
+
+.title i{
+
+    color:#60a5fa;
+
+    margin-right:10px;
+
+}
+
+.subtitle{
+
+    color:#cbd5e1;
+
+    font-size:15px;
+
+}
+
+/* ===========================
+      Accuracy Box
+=========================== */
+
+.accuracy-box{
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:white;
+
+    background:
+
+    linear-gradient(135deg,#2563eb,#7c3aed);
+
+    box-shadow:
+
+    0 0 35px rgba(37,99,235,.45);
+
+}
+
+/* ===========================
+      Stats Card
+=========================== */
+
+.stats-card{
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:28px;
+
+    text-align:center;
+
+    transition:.35s;
+
+    border:1px solid rgba(255,255,255,.10);
+
+}
+
+.stats-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+    0 20px 30px rgba(0,0,0,.30);
+
+}
+
+.stats-card i{
+
+    font-size:38px;
+
+    margin-bottom:15px;
+
+    color:#60a5fa;
+
+}
+
+.stats-card h3{
+
+    font-size:32px;
+
+    font-weight:700;
+
+}
+
+.stats-card p{
+
+    margin-top:8px;
+
+    color:#d1d5db;
+
+}
+/* ==========================================
+        FORM SECTION
+========================================== */
+
+.form-label{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+    color:#ffffff;
+
+}
+
+.form-label i{
+
+    color:#60a5fa;
+
+    margin-right:8px;
+
+}
+
+textarea{
+
+    width:100%;
+
+    min-height:260px;
+
+    resize:none;
+
+    border:none;
+
+    outline:none;
+
+    padding:22px;
+
+    font-size:16px;
+
+    color:#fff;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:18px;
+
+    transition:.35s;
+
+}
+
+textarea::placeholder{
+
+    color:#94a3b8;
+
+}
+
+textarea:focus{
+
+    border:1px solid #3b82f6;
+
+    box-shadow:
+
+    0 0 25px rgba(59,130,246,.35);
+
+    background:rgba(255,255,255,.08);
+
+}
+
+/* ==========================================
+        Character Counter
+========================================== */
+
+#counter{
+
+    color:#94a3b8;
+
+    font-size:14px;
+
+    margin-top:8px;
+
+}
+
+small{
+
+    color:#cbd5e1;
+
+}
+
+/* ==========================================
+        Premium Buttons
+========================================== */
+
+.premium-btn{
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:14px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:#fff;
+
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+
+    transition:.35s;
+
+    box-shadow:
+
+    0 10px 25px rgba(37,99,235,.35);
+
+}
+
+.premium-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 20px 35px rgba(37,99,235,.45);
+
+}
+
+.clear-btn{
+
+    padding:15px 35px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    color:#fff;
+
+    transition:.35s;
+
+}
+
+.clear-btn:hover{
+
+    background:#dc2626;
+
+    color:#fff;
+
+    border-color:#dc2626;
+
+}
+
+/* ==========================================
+          Prediction Card
+========================================== */
+
+.prediction-card{
+
+    margin-top:35px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:30px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    animation:fadeUp .5s ease;
+
+}
+
+.prediction-card h4{
+
+    font-size:22px;
+
+    margin-bottom:20px;
+
+    color:#60a5fa;
+
+}
+
+.prediction-text{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+/* ==========================================
+        Fade Animation
+========================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+/* ==========================================
+        FOOTER
+========================================== */
+
+.footer{
+
+    margin-top:35px;
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    font-size:15px;
+
+    letter-spacing:.5px;
+
+}
+
+/* ==========================================
+        SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#08131f;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(#2563eb,#7c3aed);
+
+    border-radius:20px;
+
+}
+
+/* ==========================================
+        FLOATING GLOW
+========================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:350px;
+
+    height:350px;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    right:-120px;
+
+    top:180px;
+
+    filter:blur(170px);
+
+    opacity:.15;
+
+    z-index:-1;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:300px;
+
+    height:300px;
+
+    border-radius:50%;
+
+    background:#7c3aed;
+
+    bottom:-120px;
+
+    left:-80px;
+
+    filter:blur(160px);
+
+    opacity:.18;
+
+    z-index:-1;
+
+}
+
+/* ==========================================
+        CARD ANIMATION
+========================================== */
+
+.glass-card{
+
+    animation:cardFade .8s ease;
+
+}
+
+@keyframes cardFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+        BUTTON ICONS
+========================================== */
+
+button i{
+
+    margin-right:8px;
+
+}
+
+/* ==========================================
+        HOVER EFFECT
+========================================== */
+
+.stats-card:hover i{
+
+    transform:scale(1.15);
+
+    transition:.3s;
+
+}
+
+.accuracy-box:hover{
+
+    transform:rotate(10deg) scale(1.05);
+
+    transition:.4s;
+
+}
+
+/* ==========================================
+        PREDICTION COLORS
+========================================== */
+
+.real-news{
+
+    color:#22c55e;
+
+}
+
+.fake-news{
+
+    color:#ef4444;
+
+}
+
+/* ==========================================
+        TEXT SELECTION
+========================================== */
+
+::selection{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+/* ==========================================
+        RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width:992px){
+
+.container{
+
+    padding:25px;
+
+}
+
+.title{
+
+    font-size:30px;
+
+}
+
+.accuracy-box{
+
+    width:90px;
+    height:90px;
+
+    font-size:22px;
+
+    margin-top:20px;
+
+}
+
+.stats-card{
+
+    margin-bottom:15px;
+
+}
+
+textarea{
+
+    min-height:220px;
+
+}
+
+}
+
+@media (max-width:768px){
+
+.glass-card{
+
+    padding:20px !important;
+
+}
+
+.title{
+
+    font-size:26px;
+
+}
+
+.subtitle{
+
+    font-size:13px;
+
+}
+
+.stats-card{
+
+    padding:20px;
+
+}
+
+.stats-card h3{
+
+    font-size:24px;
+
+}
+
+.stats-card i{
+
+    font-size:28px;
+
+}
+
+textarea{
+
+    font-size:15px;
+
+    min-height:200px;
+
+}
+
+.premium-btn,
+.clear-btn{
+
+    width:100%;
+
+    margin-top:10px;
+
+}
+
+.prediction-text{
+
+    font-size:22px;
+
+}
+
+}
+
+@media (max-width:576px){
+
+body{
+
+    padding:15px;
+
+}
+
+.container{
+
+    padding:0;
+
+}
+
+.glass-card{
+
+    border-radius:18px;
+
+}
+
+.title{
+
+    font-size:22px;
+
+}
+
+.accuracy-box{
+
+    width:75px;
+
+    height:75px;
+
+    font-size:18px;
+
+}
+
+.prediction-card{
+
+    padding:20px;
+
+}
+
+.footer{
+
+    font-size:13px;
+
+}
+
+}
+
+/* ==========================================
+        PREMIUM EFFECTS
+========================================== */
+
+.glass-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.glass-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:50%;
+
+    top:-120px;
+
+    right:-120px;
+
+    filter:blur(25px);
+
+}
+
+.stats-card{
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.stats-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.05);
+
+    top:-90px;
+
+    right:-90px;
+
+}
+
+.premium-btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.premium-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:30px;
+
+    height:250%;
+
+    background:rgba(255,255,255,.25);
+
+    left:-80px;
+
+    top:-70px;
+
+    transform:rotate(25deg);
+
+    transition:.7s;
+
+}
+
+.premium-btn:hover::before{
+
+    left:120%;
+
+}
+
+.prediction-card{
+
+    border-left:5px solid #3b82f6;
+
+}
+
+.prediction-text{
+
+    text-shadow:
+
+    0 0 20px rgba(59,130,246,.45);
+
+}
+
+textarea{
+
+    scrollbar-width:thin;
+
+}
+
+textarea::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+textarea::-webkit-scrollbar-thumb{
+
+    background:#3b82f6;
+
+    border-radius:10px;
+
+}
+
+.footer{
+
+    opacity:.8;
+
+}
+
+.footer:hover{
+
+    opacity:1;
+
+    transition:.4s;
+
+}
+/* ================= Footer ================= */
+
+.footer{
+    margin-top:60px;
+    padding:25px 20px;
+    text-align:center;
+    background:rgba(255,255,255,0.05);
+    border-top:1px solid rgba(255,255,255,0.1);
+    color:#d6d6d6;
+    backdrop-filter:blur(10px);
+}
+
+.footer p{
+    margin:8px 0;
+    font-size:15px;
+}
+
+.footer strong{
+    color:#4da3ff;
+}
+
+.footer span{
+    color:#00d4ff;
+    font-weight:600;
+}

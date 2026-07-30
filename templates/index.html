@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Fake News Detection</title>
+
+    <!-- Bootstrap -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Google Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="background-blur"></div>
+
+<div class="container py-5">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-11">
+
+<!-- ==========================
+        HEADER
+=========================== -->
+
+<div class="glass-card p-4 mb-4">
+
+<div class="d-flex justify-content-between align-items-center flex-wrap">
+
+<div>
+
+<h1 class="title">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+AI Fake News Detection
+
+</h1>
+
+<p class="subtitle">
+
+Machine Learning Based News Verification System
+
+</p>
+
+</div>
+
+<div class="accuracy-box">
+
+98.65%
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================
+      DASHBOARD CARDS
+=========================== -->
+
+<div class="row g-4 mb-4">
+
+<div class="col-md-3">
+
+<div class="stats-card">
+
+<i class="fa-solid fa-database"></i>
+
+<h3>44,898</h3>
+
+<p>Total Dataset</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="stats-card">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<h3>21,417</h3>
+
+<p>Real News</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="stats-card">
+
+<i class="fa-solid fa-circle-xmark"></i>
+
+<h3>23,481</h3>
+
+<p>Fake News</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="stats-card">
+
+<i class="fa-solid fa-brain"></i>
+
+<h3>ML</h3>
+
+<p>Logistic Regression</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================
+        INPUT CARD
+=========================== -->
+
+<div class="glass-card p-4">
+
+<form action="/predict" method="POST">
+
+<label class="form-label">
+
+<i class="fa-solid fa-newspaper"></i>
+
+Paste News Article
+
+</label>
+
+<textarea
+
+id="news"
+
+name="news"
+
+class="form-control"
+
+rows="11"
+
+placeholder="Paste your news article here..."
+
+required></textarea>
+
+<div class="d-flex justify-content-between mt-2">
+
+<small id="counter">
+
+0 Characters
+
+</small>
+
+<small>
+
+AI Powered Detection
+
+</small>
+
+</div>
+
+<div class="mt-4 d-flex gap-3 flex-wrap">
+
+<button
+
+id="predictBtn"
+
+class="btn premium-btn">
+
+<span id="btnText">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+Analyze News
+
+</span>
+
+<span id="loading" style="display: none;">
+    <div class="spinner-border spinner-border-sm"></div>
+
+
+Analyzing...
+
+</span>
+
+</button>
+
+<button
+
+type="reset"
+
+class="btn clear-btn">
+
+<i class="fa-solid fa-trash"></i>
+
+Clear
+
+</button>
+
+</div>
+
+{% if prediction %}
+
+<div class="prediction-card mt-5">
+
+    <div class="d-flex justify-content-between align-items-center flex-wrap">
+
+        <h4>
+            <i class="fa-solid fa-chart-line"></i>
+            AI Prediction Result
+        </h4>
+
+        <span class="badge bg-primary fs-6">
+            Machine Learning
+        </span>
+
+    </div>
+
+    {% if "Real" in prediction %}
+
+    <div class="prediction-text real-news">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        {{ prediction }}
+
+    </div>
+
+    {% else %}
+
+    <div class="prediction-text fake-news">
+
+        <i class="fa-solid fa-circle-xmark"></i>
+
+        {{ prediction }}
+
+    </div>
+
+    {% endif %}
+
+    <div class="progress mt-4">
+
+        <div class="progress-bar" role="progressbar">
+
+            98.65%
+
+        </div>
+
+    </div>
+
+    <div class="row mt-4 g-3">
+
+        <div class="col-md-4">
+
+            <div class="stats-card">
+
+                <i class="fa-solid fa-brain"></i>
+
+                <h5>Algorithm</h5>
+
+                <p>Logistic Regression</p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="stats-card">
+
+                <i class="fa-solid fa-bullseye"></i>
+
+                <h5>Accuracy</h5>
+
+                <p>98.65%</p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="stats-card">
+
+                <i class="fa-solid fa-clock"></i>
+
+                <h5>Status</h5>
+
+                <p>Prediction Complete</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+</form>
+
+</div>
+
+<!-- ==========================
+      FEATURES
+=========================== -->
+
+<div class="row mt-4 g-3">
+
+    <div class="col-md-4">
+
+        <div class="glass-card p-4 text-center">
+
+            <i class="fa-solid fa-shield-halved fa-2x mb-3 text-info"></i>
+
+            <h5>Reliable Detection</h5>
+
+            <p>Detects fake and real news using a trained Machine Learning model.</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="glass-card p-4 text-center">
+
+            <i class="fa-solid fa-bolt fa-2x mb-3 text-warning"></i>
+
+            <h5>Fast Analysis</h5>
+
+            <p>Prediction is generated within seconds using TF-IDF and Logistic Regression.</p>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="glass-card p-4 text-center">
+
+            <i class="fa-solid fa-lock fa-2x mb-3 text-success"></i>
+
+            <h5>Secure</h5>
+
+            <p>Your entered news is processed locally by the application.</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================
+        FOOTER
+=========================== -->
+
+<div class="footer text-center mt-5">
+...
+<footer class="footer">
+    <p>Developed by <strong>Shailesh Patel</strong></p>
+    <p>B.Tech CSE (IoT & Blockchain)</p>
+    <p>Powered by Flask | Scikit-learn | TF-IDF | Logistic Regression</p>
+    <p>© 2026 AI Fake News Detection</p>
+</footer>
+
+</body>
+</html>
+    
